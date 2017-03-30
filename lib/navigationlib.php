@@ -4377,6 +4377,7 @@ class settings_navigation extends navigation_node {
             $url = new moodle_url('/course/modedit.php', array('update' => $this->page->cm->id, 'return' => 1));
             $modulenode->add(get_string('editsettings'), $url, navigation_node::TYPE_SETTING, null, 'modedit');
         }
+
         // Assign local roles
         if (count(get_assignable_roles($this->page->cm->context))>0) {
             $url = new moodle_url('/'.$CFG->admin.'/roles/assign.php', array('contextid'=>$this->page->cm->context->id));
@@ -4427,6 +4428,20 @@ class settings_navigation extends navigation_node {
         $function = $this->page->activityname.'_extend_settings_navigation';
         if (function_exists($function)) {
             $function($this, $modulenode);
+        }
+        // for adding a demo option
+        if (has_capability('moodle/course:manageactivities', $this->page->cm->context)) {
+            $url = new moodle_url('/course/modedit.php', array('update' => $this->page->cm->id, 'return' => 1));
+            $modulenode->add('Advance Grading', $url, navigation_node::TYPE_SETTING, null, 'modedit');
+        }
+        if (has_capability('moodle/course:manageactivities', $this->page->cm->context)) {
+            $url = new moodle_url('/course/modedit.php', array('update' => $this->page->cm->id, 'return' => 1));
+            $modulenode->add('Grade', $url, navigation_node::TYPE_SETTING, null, 'modedit');
+        }
+        //only for a specific role
+        if (!has_capability('moodle/course:visibility', $this->page->cm->context)) {
+            $url = new moodle_url('/grade/report/user/index.php',  array('id' =>5));
+            $modulenode->add('View gradebook', $url, navigation_node::TYPE_SETTING, null, 'modedit');
         }
 
         // Remove the module node if there are no children.
