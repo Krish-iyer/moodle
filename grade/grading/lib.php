@@ -245,7 +245,12 @@ class grading_manager {
      * @param bool $includenone should the 'Simple direct grading' be included
      * @return array of the (string)name => (string)localized title of the method
      */
-    public static function available_methods($includenone = true) {
+    public static function available_methods($includenone = true, $includenograding = false) {
+
+        $list = array();
+        if ($includenograding) {
+            $list['nograding'] = get_string('gradingmethodnograding', 'core_grading');
+        }
 
         if ($includenone) {
             $list = array('' => get_string('gradingmethodnone', 'core_grading'));
@@ -271,7 +276,7 @@ class grading_manager {
      * @param bool $includenone should the 'Simple direct grading' be included
      * @return array of the (string)name => (string)localized title of the method
      */
-    public function get_available_methods($includenone = true) {
+    public function get_available_methods($includenone = true, $includenograding = false) {
         $this->ensure_isset(array('context'));
         return self::available_methods($includenone);
     }
