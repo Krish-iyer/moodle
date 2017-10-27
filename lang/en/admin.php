@@ -581,7 +581,7 @@ $string['gravatardefaulturl_help'] = 'Gravatar needs a default image to display 
 $string['gradeexport'] = 'Primary grade export methods';
 $string['guestroleid'] = 'Role for guest';
 $string['guestroleid_help'] = 'This role is automatically assigned to the guest user. It is also temporarily assigned to not enrolled users that enter the course via guest enrolment plugin.';
-$string['helpadminseesall'] = 'Do admins see all calendar events or just those that apply to themselves?';
+$string['helpadminseesall'] = 'In the site calendar, do admins see and filter events from all course calendars or just those from courses they are enrolled in? Regardless of the chosen option, admins will always be able to manage events for each course calendar by navigating to the course first, and then accessing the course calendar directly.';
 $string['helpcalendarcustomexport'] = 'Enable custom date range export option in calendar exports. Calendar exports must be enabled before this is effective.';
 $string['helpexportlookahead'] = 'How many days in the future does the calendar look for events during export for the custom export option?';
 $string['helpexportlookback'] = 'How many days in the past does the calendar look for events during export for the custom export option?';
@@ -1175,6 +1175,7 @@ $string['unsupporteddbstorageengine'] = 'The database storage engine being used 
 $string['unsupporteddbtablerowformat'] = 'Your database has tables using Antelope as the file format. You are recommended to convert the tables to the Barracuda file format. See the documentation <a href="https://docs.moodle.org/en/cli">Administration via command line</a> for details of a tool for converting InnoDB tables to Barracuda.';
 $string['unsupportedphpversion7'] = 'PHP version 7 is not supported.';
 $string['unsupportedphpversion71'] = 'PHP version 7.1 is not supported.';
+$string['unsupportedphpversion72'] = 'PHP version 7.2 is not supported.';
 $string['unsuspenduser'] = 'Activate user account';
 $string['updateaccounts'] = 'Update existing accounts';
 $string['updatecomponent'] = 'Update component';

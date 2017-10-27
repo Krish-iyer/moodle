@@ -23,6 +23,8 @@
  */
 namespace core_calendar\local\event\forms;
 
+use context_system;
+
 defined('MOODLE_INTERNAL') || die();
 
 require_once($CFG->dirroot.'/lib/formslib.php');
@@ -48,7 +50,8 @@ class create extends \moodleform {
             'context' => $context,
             'maxfiles' => EDITOR_UNLIMITED_FILES,
             'maxbytes' => $CFG->maxbytes,
-            'noclean' => true
+            'noclean' => true,
+            'autosave' => false
         ];
     }
 
@@ -245,7 +248,8 @@ class create extends \moodleform {
         }
 
         if (isset($eventtypes['course'])) {
-            $mform->addElement('course', 'courseid', get_string('course'), ['limittoenrolled' => true]);
+            $limit = !has_capability('moodle/calendar:manageentries', context_system::instance());
+            $mform->addElement('course', 'courseid', get_string('course'), ['limittoenrolled' => $limit]);
             $mform->hideIf('courseid', 'eventtype', 'noteq', 'course');
         }
 
