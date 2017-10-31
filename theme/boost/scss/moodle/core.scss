@@ -1208,8 +1208,11 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
     display: block;
 }
 
-.moodle-dialogue-base .moodle-dialogue-wrap.moodle-dialogue-content {
-    @extend .modal-content;
+@include media-breakpoint-up(md) {
+    .moodle-dialogue-base .moodle-dialogue-wrap.moodle-dialogue-content {
+        @extend .modal-content;
+        width: 650px;
+    }
 }
 
 .moodle-dialogue-base .moodle-dialogue-wrap .moodle-dialogue-hd {
@@ -1427,7 +1430,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
 .jschooser .choosercontainer #chooseform .alloptions {
     overflow-x: hidden;
     overflow-y: auto;
-    max-width: 240px;
+    max-width: 325px;
 
     .option {
         input[type=radio] {
@@ -1436,7 +1439,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
 
         .typename {
             display: inline-block;
-            width: 55%;
+            width: 72%;
         }
     }
 }
@@ -1502,7 +1505,7 @@ body#page-lib-editor-tinymce-plugins-moodlemedia-preview {
     top: 0;
     right: 0;
     bottom: 0;
-    left: 240px;
+    left: 325px;
     margin: 0;
     padding: 1.6em;
     background-color: #fff;
